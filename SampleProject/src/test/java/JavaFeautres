@@ -1,0 +1,385 @@
+1) Comparsion operator (==)
+if(i==j) System.out.println("This is color");
+else
+ System.out.println("The values are not equal");
+
+2) A prime number is a positive integer that is divisible only by 1 and itself.
+For example: 2, 3, 5, 7, 11, 13, 17. Program to Check Prime Number.
+All odd numbers are not prime Example: 9 is an odd number having factors 1, 3 and 9 and is not a prime number.
+
+3) JVM runs java bytecode (Byte code is the compiled form of java programs and remain the same across platforms.
+JRE = JVM + libraries + other components
+JDK = JRE + compilers + debuggers
+
+3b) += operator
+The += operator in Java is a shorthand operator that combines the assignment operator = and the addition operator +.
+It is used to add a value to a variable and assign the result to the same variable.
+int x = 5;
+x += 3; // equivalent to x = x + 3;System.out.println(x); // output: 8;
+int y = 10;y -= 5; // equivalent to y = y - 5;System.out.println(y); // output: 5
+int z = 3; z *= 4; // equivalent to z = z * 4; System.out.println(z); // output: 12
+
+4) String literals are immutable (not changeble) we use seperate string objects or StringBuffer
+for to make strings mutable the same and all operations  like append,replace,reverse,insert and delete
+can be done on String buffer String Buffer is thread safe synchronous and
+string builder is not not thread safe and asynchronous.Note that the StringBuffer class is similar to StringBuilder,
+but it is thread-safe and therefore slower than StringBuilder.
+public class Main {
+  public static void main(String[] args) {
+    String str1 = "Hello"; // string literal
+    String str2 = str1; // string literal
+    System.out.println("Before modification:");
+    System.out.println("str1: " + str1);
+    System.out.println("str2: " + str2);
+    str1 += " World!";
+    System.out.println("After modification:");
+    System.out.println("str1: " + str1);
+    System.out.println("str2: " + str2);
+    StringBuilder sb = new StringBuilder("Hello");// String builder to make it mutable
+    System.out.println(sb.append(" World!"));//Hello World!
+    System.out.println(sb);//Hello World!
+    StringBuffer sbr = new StringBuffer("Hello");// String Buffer to make it mutable
+    System.out.println(sbr.append(" World!"));//Hello World!
+
+    }}
+  }
+}
+output
+Before modification:
+str1: Hello
+str2: Hello
+Address is 69609650
+Address is 69609650
+Hello World!World
+After modification:
+str1: Hello World!
+str2: Hello
+
+5)Equals method and == operator
+== is a reference comparison operator, which compares the memory addresses of two objects to see if they refer
+to the same object in memory. When == is used to compare two primitive data types,
+it compares their values instead of their memory addresses.
+.equals() is a method defined in the Object class, and it is used to compare the contents of two objects to see if they are
+logically equal.
+ System.out.println(sbr);
+ String str1 = "Hello";
+ String str2 = new String("Hello");
+    // Using ==
+            if (str1 == str2) {
+                System.out.println("str1 == str2");
+            } else {
+                System.out.println("str1 != str2");
+            }
+
+    // Using .equals()
+            if (str1.equals(str2)) {
+                System.out.println("str1 equals str2");
+            } else {
+                System.out.println("str1 does not equal str2");
+            }
+        }}
+ str1 != str2
+ str1 equals str2
+
+5)Access specifier should be public,variables to be public,static,final and abstract classes,variables should not be private
+Concepts
+Interfaces - can we use static methods in interfaces
+Static methods in interfaces are used for providing utility methods that can be called without creating an instance
+of the implementing class.These methods can be called using the interface name, followed by the method name.Yes, starting from Java 8, it is possible to define static methods in interfaces in Java.
+Static methods in interfaces are used for providing utility methods that can be called without creating an instance of the implementing class. These methods can be called using the interface name,
+followed by the method name.
+
+public interface MyInterface
+{
+    static void printMessage()
+    {
+        System.out.println("Hello, world!");
+    }
+}
+public class newc implements MyInterface
+{
+MyInterface.myStaticMethod();
+}
+
+3) Abstract classes and differences with interfaces
+abstract class is a class that cannot be instantiated directly,but can only be used as a base class for other classes.
+An abstract class is declared using the abstract keyword, and it can contain both abstract and non-abstract methods.
+partially abstracted and fully abstracted.
+
+public abstract class Animal {
+    private String name;
+    public Animal(String name)
+     {
+        this.name = name;
+    }
+    public String getName() {
+        return name;
+    }
+    public abstract void speak();
+}
+ @Override
+    public void speak() {
+        System.out.println("Woof!");
+
+Polymorphism compile time and Run time
+compile-time polymorphism (also called method overloading) and runtime polymorphism (also called method overriding).
+Method overloading allows multiple methods with the same name to exist in a class, as long as they have different parameters. During the compilation process,
+the compiler determines which method to call based on the parameters provided to the method call.
+public class MathOperations {
+public int add(int a, int b) {
+        return a + b;
+    }
+    public double add(double a, double b)
+    {
+        return a + b;
+    }
+}
+public class Animal {
+    public void makeSound() {
+        System.out.println("Animal is making a sound");
+    }
+}
+
+public class Dog extends Animal {
+    @Override
+    public void makeSound() {
+        System.out.println("Dog is barking");
+    }
+}
+Overloading and constructors
+6) Function overloading and overriding usage of super() in constructors;
+) constructors (default, parametrised, no need to invoke methods just create objects usage of super keyword to access
+parent class variables.
+(Child class methods will override parent class methods and usage of super keyword in constructors first
+ line will invoke parent class methods
+
+8) Encapsulation :this keyword,final keyword cannot change the value of final keyword and cannot extend final classes.
+public : access across classes in and outside of package
+private : only within the same class and not outside even in package
+protected: access within package + outside package if its extended parent class
+default : acesss within the package.
+
+9) Exceptions :
+Checked and unchecked Exceptions and finally will be executed irrespective of catch
+Checked exceptions are those which the compiler requires the programmer to handle.
+This means that if a method throws a checked exception, the caller must either catch the exception
+ or declare that it throws the exception. Examples of checked exceptions in Java include IOException,
+SQLException, and ClassNotFoundException.
+Unchecked Exceptions: Unchecked exceptions are those which are not checked at compile-time.
+These exceptions occur at runtime and can be handled by the programmer if they choose to do so.
+Examples of unchecked exceptions in Java include NullPointerException,
+ArrayIndexOutOfBoundsException, and ArithmeticException
+we have to catch it in a try-catch block. On the other hand, we are intentionally throwing an unchecked exception
+(ArithmeticException) by dividing an integer by zero.
+Since this exception is not checked at compile-time, we don't need to handle it in a try-catch block.
+
+10) Collections - Arraylist,Hashset and Hashmaps
+java collections are List (Arraylists,linked lists and ,set and hashmaps) (Lists,sets maps)
+Array lists can accept duplicate values and null values and order is maintained
+
+ArrayList,LinkedList,vector- Implementing List interface (Array Lists,Linked Lists and Vector)
+ArrayList is implemented as a dynamic array, while LinkedList is implemented as a doubly linked list.
+This means that ArrayList provides constant-time access to individual elements using an index,
+
+Performance: Since ArrayList is implemented as a dynamic array,
+it provides faster iteration and random access to elements than LinkedList.
+On the other hand, LinkedList provides faster insertion and removal of elements at the beginning and end of the list.
+whereas LinkedList provides constant-time insertion and removal of elements at the beginning and end of the list.
+ArrayList requires more memory than LinkedList, as it needs to allocate a contiguous block of memory to store its elements.
+LinkedList stores its elements as individual nodes that point to the previous and next nodes in the list.
+ArrayList is generally preferred when there is a need for frequent access to individual elements, whereas LinkedList is
+preferred when there is a need for frequent insertion and removal of elements at the beginning or end of the list.
+ public static void main(String[] args)
+    {
+        ArrayList<String> a1 = new ArrayList<String>();
+        a1.add("Rahul");
+        a1.add("Shetty");
+         System.out.println(a1.get(1)); // O(1) access to individual element
+   linkedList.addFirst("orange"); // O(1) insertion at the beginning of the list
+   linkedList.removeLast(); // O(1) removal at the end of the list
+   System.out.println(linkedList.getFirst()); // O(1) access to the first element
+        }
+Hashset,Treeset and Linked Hashset implements set interface will not accept duplicate values but accepts null values
+and not in a specific order.
+ public static void main(String[] args)
+    {
+        HashSet<String> hs= new HashSet<String>();
+        hs.add("USA");
+        hs.add("UK");
+        hs.add("INDIA");
+    }
+Hash map
+Hashmap takes index and values (key value pair) is not thread safe compared to hashtable,accepts null values
+hash map  concurrent programs can get the value of hashmap but not through hashtable
+hashtable cannot use iterator,syncronous and doesn't accept null keys and values.
+  public static void main(String[] args) {
+HashMap<Integer, String> hm = new HashMap<Integer, String>();
+        hm.put(0, "hello");
+        hm.put(1, "hello");
+        hm.put(41, "hello");}
+
+11)Static variables,instance variables and static blocks
+12) Java streams , lamda expressions,filters
+14) File handling
+public class BaseTest
+{
+ Properties prop = new Properties();
+ FileInputStream fis = new FileInputStream(System.getProperty("user.dir")
+				+ "//src//main//java//rahulshettyacademy//resources//GlobalData.properties");
+ prop.load(fis);
+ String browserName = System.getProperty("browser")!=null ? System.getProperty("browser") :prop.getProperty("browser");
+ prop.getProperty("browser");
+ if (browserName.contains("chrome")) {
+ ChromeOptions options = new ChromeOptions();
+ WebDriverManager.chromedriver().setup();
+ if(browserName.contains("headless")){
+ options.addArguments("headless");
+}
+}
+}
+
+Programs covered
+1) Check if a given no is present in an int array.
+2) Printing the unique no in a given array
+3) Given string is palindrome or not
+4) swapping with and w/o temp;
+5) Given no is prime or not
+6) sorting an array
+===========================================================================================
+In Java, a string is an object of the java.lang.String class, and it is immutable,
+which means that its contents cannot be modified after it has been created.
+This is because the String class is designed to be immutable,
+with its methods returning new strings rather than modifying the original string.
+Here's an example that illustrates why strings are immutable
+
+To make strings mutable we can use StringBuilder or StringBuffer
+public class Main {
+public static void main(String[] args) {
+    StringBuilder sb = new StringBuilder("Hello");
+    sb.append(" World!");
+    System.out.println(sb.toString());
+  }
+}
+These methods modify the existing StringBuilder object instead of creating a new object each time,
+which makes the string mutable.Note that the StringBuffer class is similar to StringBuilder,
+but it is thread-safe and therefore slower than StringBuilder.
+In Java, there are five different types of inheritance, which are as follows:
+
+Single inheritance: Single inheritance is the most common type of inheritance,
+where a subclass extends a single superclass. This means that the subclass inherits all the properties and methods
+of its superclass.
+Multilevel inheritance: Multilevel inheritance is where a subclass extends another subclass,
+and that subclass extends another superclass.
+In this type of inheritance, a subclass can inherit properties and methods from multiple levels.
+Hierarchical inheritance: Hierarchical inheritance is where multiple subclasses inherit from the same superclass.
+This means that each subclass has its own set of properties and methods inherited from the same superclass.
+Multiple inheritance: Multiple inheritance is where a subclass can inherit properties and methods from multiple superclasses. However, Java does not support multiple inheritance of classes, but it can be achieved through interfaces.
+Hybrid inheritance: Hybrid inheritance is a combination of two or more types of inheritance. For example, a class can inherit from a superclass using single inheritance and from an interface using multiple inheritance.
+
+It's important to note that in Java, all classes implicitly inherit from the Object class,
+which is the root of the class hierarchy.
+
+practical implementation of inheritance in selenium is
+WebDriver driver = new ChromeDriver();
+
+Constructors is a special method that is called when an object of a class is created.
+It is used to initialize the state of an object and allocate memory for it.
+A constructor has the same name as the class and doesn't have a return type, not even void.
+Here are some important things to keep in mind about constructors in Java:
+Constructors can be used to set the initial values of instance variables or perform any other initialization tasks.
+If you don't define a constructor in your class, Java provides a default constructor that takes no arguments
+and performs no initialization.
+
+If you define a constructor in your class, Java will not provide the default constructor unless you define it explicitly.
+Constructors can be overloaded, which means you can define multiple constructors in a class with different parameter lists.
+Constructors can also call other constructors using the this keyword. This is called constructor chaining.
+Constructors can be public, private, protected or have default access modifier.
+Constructors are not inherited by subclasses, but a subclass constructor can call a constructor of its superclass
+using super keyword.
+public class Car {
+    private String make;
+    private String model;
+    private int year;
+// Constructor with parameters
+    public Car(String make, String model, int year) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+    }
+// Default constructor
+    public Car() {
+        this.make = "";
+        this.model = "";
+        this.year = 0;
+    }
+    // Getter methods
+    public String getMake() {
+        return make;
+    }
+ public String getModel() {
+        return model;
+    }
+
+ public int getYear() {
+        return year;
+    }
+}
+
+In Java, variables can be classified into three categories: instance variables, class variables, and static variables.
+Instance variables: These are variables that are declared inside a class but outside any method, constructor or block.
+Instance variables are created when an object is instantiated and are unique to each instance of the class.
+Instance variables are used to hold the state of an object and can have different values for different objects.
+public class Person {
+private String name; // instance variable
+public void setName(String name) {
+        this.name = name;
+    }
+public String getName() {
+        return name;
+    }
+}
+Class variables: These are variables that are declared inside a class but outside any method, constructor or block,
+with the static keyword. Class variables are also known as static variables because they are associated with the class itself,
+rather than with any instance of the class. There is only one copy of a class variable that is shared
+among all instances of the class.
+public class Person {
+    private static int count = 0; // class variable
+
+    public Person() {
+        count++;
+    }
+
+    public static int getCount() {
+        return count;
+    }
+Static variables: These are variables that are declared inside a class but outside any method, constructor or block,
+with the final keyword. Static variables are also known as constants because their values cannot be changed once
+they are initialized. Static variables are associated with the class itself and can be accessed without creating an instance
+of the class.
+public class Circle {
+    public static final double PI = 3.14; // static variable
+    private double radius;
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+    public double getArea() {
+        return PI * radius * radius;
+    }
+}
+GCP integration
+To integrate automation testing in Google Cloud Platform, you can follow the steps below:
+Set up a virtual machine in Google Cloud Platform (GCP) using Compute Engine.
+This virtual machine will act as your test environment.
+Install your test automation framework and necessary dependencies on the virtual machine.
+For example, if you are using Selenium WebDriver for web application testing, you will need to install a web browser and the appropriate driver.
+Set up your test scripts and any required test data on the virtual machine.
+Configure the virtual machine to allow access to your application or website. This may involve opening firewall ports or setting up a VPN.
+Schedule your tests using a test runner or scheduling tool like Jenkins or Google Cloud Scheduler. This will ensure that your tests run automatically on a regular basis.
+Monitor your test results using a reporting tool or dashboard like Google Cloud Monitoring or Stackdriver. This will allow you to track the progress of your tests and identify any issues that need to be addressed.
+Integrate your test results with your CI/CD pipeline to automate the deployment process. This will ensure that any changes to your application or website are thoroughly tested before being released to production.
+Overall, integrating automation testing in Google Cloud Platform involves setting up a virtual machine, installing your test automation framework and necessary dependencies,
+configuring the virtual machine to allow access to your application, scheduling your tests, monitoring your test results, and integrating your test results with your CI/CD pipeline.
+
+nslookup.io
+wins+shift+s = screenshot
+lipsum.com - for generating paragraphs
